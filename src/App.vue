@@ -1,15 +1,30 @@
 <script setup>
+import { ref, onMounted } from 'vue'
 //import HelloWorld from './components/HelloWorld.vue'
 
-const getData = () => {
+const musica = ref('')
+
+
+      setInterval(function () {
+
+    
   fetch('https://radio.somdomato.com:8000/status-json.xsl', {
     headers: { 'Content-type': 'application/json' },
-  }).then(res=>res.json()).then((response) => {
-    console.log({ response })
+  })
+  .then(res=>res.json())
+  .then((response) => {
+    console.log(response.icestats.source.title)
   }).catch((error) => {
     console.log('Looks like there was a problem: \n', error);
-  });
-}
+  });    
+    
+    }, 5000);
+
+
+
+onMounted(() => {
+  console.log(`The initial count is ${count.value}.`)
+})
 
 getData();
 </script>
@@ -55,6 +70,8 @@ getData();
     <div class="container">
       <h1 class="mt-5">Rádio Som do Mato</h1>
 
+       <p class="lead">{{ musica }}</p>
+
 <vue-plyr>
   <audio controls crossorigin playsinline>
     <source
@@ -64,12 +81,8 @@ getData();
   </audio>
 </vue-plyr>
 
-      <!-- <p class="lead">
-        Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with
-        <code class="small">padding-top: 60px;</code> on the
-        <code class="small">main &gt; .container</code>.
-      </p>
-      <p>
+
+      <!-- <p>
         Back to
         <a href="/docs/5.1/examples/sticky-footer/">the default sticky footer</a> minus the navbar.
       </p> -->
