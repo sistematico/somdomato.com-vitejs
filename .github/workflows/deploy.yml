@@ -16,7 +16,7 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         port: ${{ secrets.SSH_PORT }}
-        key: ${{ secrets.SSH_KEY }}
+        password: ${{ secrets.SSH_PASS }}
         source: "."
         target: ${{ secrets.PROJECT_PATH }}
 
@@ -26,5 +26,5 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         port: ${{ secrets.SSH_PORT }}
-        key: ${{ secrets.SSH_KEY }}
+        password: ${{ secrets.SSH_PASS }}
         script: ls
