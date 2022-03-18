@@ -1,0 +1,44 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "PNPM Install",
+        "type": "npm",
+        "script": "install",
+        "problemMatcher": [],
+        "detail": "pnpm install",
+        "group": "none",
+        "presentation": {
+          "reveal": "always",
+          "panel": "new"
+        }
+      },
+      {
+        "label": "PNPM Build",
+        "type": "npm",
+        "script": "build",
+        "problemMatcher": [],
+        "detail": "pnpm build",
+        "group": "none",
+        "presentation": {
+          "reveal": "always",
+          "panel": "new"
+        }
+      },
+      {
+        "label": "PNPM Dev",
+        "type": "npm",
+        "script": "dev",
+        "problemMatcher": [],
+        "detail": "pnpm dev",
+        "group": "none",
+        "runOptions": {
+          "runOn": "folderOpen"
+        },
+        "presentation": {
+          "reveal": "always",
+          "panel": "new"
+        }
+      }
+    ]
+  }
