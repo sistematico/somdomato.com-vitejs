@@ -76,7 +76,7 @@ onMounted(() => {
        <p class="lead">{{ musica }}</p>
 
 <vue-plyr>
-  <audio controls crossorigin playsinline>
+  <audio controls playsinline crossorigin="anonymous">
     <source
         :src="audiosrc"
         type="audio/mp3"
