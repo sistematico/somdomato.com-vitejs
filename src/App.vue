@@ -5,29 +5,28 @@ import { ref, onMounted } from 'vue'
 const musica = ref('')
 
 
-      setInterval(function () {
 
-    
+onMounted(() => {
+  //console.log(`The initial count is ${count.value}.`)
+
+    setInterval(function () {
+
+
   fetch('https://radio.somdomato.com:8000/status-json.xsl', {
-    headers: { 'Content-type': 'application/json' },
+  headers: { 'Content-type': 'application/json' },
   })
   .then(res=>res.json())
   .then((response) => {
-    console.log(response.icestats.source.title)
-    musica = response.icestats.source.title
+  console.log(response.icestats.source.title)
+  musica = response.icestats.source.title
   }).catch((error) => {
-    console.log('Looks like there was a problem: \n', error);
+  console.log('Looks like there was a problem: \n', error);
   });    
-    
-    }, 5000);
 
-
-
-onMounted(() => {
-  console.log(`The initial count is ${count.value}.`)
+  }, 5000);
 })
 
-getData();
+//getData();
 </script>
 
 <template>
