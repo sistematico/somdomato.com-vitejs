@@ -8,8 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-
+    - uses: actions/checkout@master
     - name: Copy repository contents via scp
       uses: appleboy/scp-action@master
       with:
@@ -20,11 +19,11 @@ jobs:
         source: "."
         target: ${{ secrets.PROJECT_PATH }}
 
-    - name: Executing remote command
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USER }}
-        port: ${{ secrets.SSH_PORT }}
-        password: ${{ secrets.SSH_PASS }}
-        script: ls
+    # - name: Executing remote command
+    #   uses: appleboy/ssh-action@master
+    #   with:
+    #     host: ${{ secrets.SSH_HOST }}
+    #     username: ${{ secrets.SSH_USER }}
+    #     port: ${{ secrets.SSH_PORT }}
+    #     password: ${{ secrets.SSH_PASS }}
+    #     script: ls
