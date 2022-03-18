@@ -1,5 +1,17 @@
 <script setup>
 //import HelloWorld from './components/HelloWorld.vue'
+
+const getData = () => {
+  fetch('https://radio.somdomato.com:8000/status-json.xsl', {
+    headers: { 'Content-type': 'application/json' },
+  }).then(res=>res.json()).then((response) => {
+    console.log({ response })
+  }).catch((error) => {
+    console.log('Looks like there was a problem: \n', error);
+  });
+}
+
+getData();
 </script>
 
 <template>
