@@ -3,10 +3,13 @@ import { ref, onMounted } from 'vue'
 //import HelloWorld from './components/HelloWorld.vue'
 
 const musica = ref('')
-
+const audiosrc = ref('https://radio.somdomato.com/main')
 
 
 onMounted(() => {
+  let ts = Math.floor(Date.now() / 1000)
+  audiosrc.value = 'https://radio.somdomato.com/main?nc=' + ts 
+
   //console.log(`The initial count is ${count.value}.`)
 
   setInterval(function () {
@@ -75,7 +78,7 @@ onMounted(() => {
 <vue-plyr>
   <audio controls crossorigin playsinline>
     <source
-        src="https://radio.somdomato.com/main"
+        :src="audiosrc"
         type="audio/mp3"
     />
   </audio>
