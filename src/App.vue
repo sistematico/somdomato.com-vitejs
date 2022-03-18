@@ -12,20 +12,22 @@ onMounted(() => {
 
   //console.log(`The initial count is ${count.value}.`)
 
-  setInterval(function () {
-
-
-    fetch('https://radio.somdomato.com:8000/status-json.xsl', {
+      fetch('https://radio.somdomato.com:8000/status-json.xsl', {
       mode:"cors",
       headers: { 'Content-type': 'application/json' },
     })
     .then(res=>res.json())
     .then((response) => {
-      console.log(response.icestats.source.title)
+      console.log(response)
       musica = response.icestats.source.title
     }).catch((error) => {
       console.log('Looks like there was a problem: \n', error);
-    });    
+    }); 
+
+  setInterval(function () {
+
+
+   
 
   }, 5000);
 })
