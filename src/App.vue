@@ -11,25 +11,19 @@ onMounted(() => {
   audiosrc.value = 'https://radio.somdomato.com/main?nc=' + ts 
 
   //console.log(`The initial count is ${count.value}.`)
+      // mode:"cors",
 
-      fetch('https://radio.somdomato.com:8000/status-json.xsl', {
-      mode:"cors",
-      headers: { 'Content-type': 'application/json' },
-    })
-    .then(res=>res.json())
-    .then((response) => {
-      console.log(response)
-      musica = response.icestats.source.title
-    }).catch((error) => {
-      console.log('Looks like there was a problem: \n', error);
-    }); 
+    fetch('https://radio.somdomato.com/json')
+      .then(res=>res.json())
+      .then((response) => {
+        console.log(response)
+        musica = response.icestats.source.title
+      }).catch((error) => {
+        console.log('Looks like there was a problem: \n', error);
+      }); 
 
-  setInterval(function () {
-
-
-   
-
-  }, 5000);
+  // setInterval(function () {
+  // }, 5000);
 })
 
 //getData();
