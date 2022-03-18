@@ -1,12 +1,10 @@
-name: Deploy
+name: Deploy Vite.js
 
 on: [push]
 
 jobs:
-  build:
-
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@master
     - name: Copy repository contents via scp
@@ -19,11 +17,18 @@ jobs:
         source: "."
         target: ${{ secrets.PROJECT_PATH }}
 
-    # - name: Executing remote command
-    #   uses: appleboy/ssh-action@master
-    #   with:
-    #     host: ${{ secrets.SSH_HOST }}
-    #     username: ${{ secrets.SSH_USER }}
-    #     port: ${{ secrets.SSH_PORT }}
-    #     password: ${{ secrets.SSH_PASS }}
-    #     script: ls
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Building Vite.js Site
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        password: ${{ secrets.SSH_PASS }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          cd ${{ secrets.PROJECT_PATH }}
+          git pull origin main
+          pnpm install
+          pnpm build
