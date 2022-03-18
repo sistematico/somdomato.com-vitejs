@@ -1,21 +1,30 @@
 <script setup>
-//import HelloWorld from './components/HelloWorld.vue'
-import { ref, reactive, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
+
 const musica = ref('')
 const audiosrc = ref('https://radio.somdomato.com/main')
 
-onMounted(() => {
-  let ts = Math.floor(Date.now() / 1000)
-  audiosrc.value = 'https://radio.somdomato.com/main?nc=' + ts 
+const onPausePlyr = _ => {
+  audiosrc.value = 'https://radio.somdomato.com/main?nc=' + Math.floor(Date.now() / 1000)
+}
 
-  setInterval(function () {    
-    fetch('https://radio.somdomato.com/json')
-      .then(res=>res.json())
-      .then((response) => {
-        musica.value.innerText = response.icestats.source.title
-      }).catch((error) => {
-        console.log('Looks like there was a problem: \n', error);
-      })
+const fetchTitle = _ => {
+  fetch('https://radio.somdomato.com/json')
+  .then(res=>res.json())
+  .then((response) => {
+    if (musica.value)
+      musica.value.innerText = response.icestats.source.title
+  }).catch((error) => {
+    console.log('Looks like there was a problem: \n', error);
+  })
+}
+
+onMounted(() => {
+  audiosrc.value = 'https://radio.somdomato.com/main?nc=' + Math.floor(Date.now() / 1000) 
+  fetchTitle()
+
+  setInterval(function () { 
+    fetchTitle()
   }, 5000)
 })
 </script>
@@ -59,9 +68,9 @@ onMounted(() => {
   <main class="flex-shrink-0">
     <div class="container">
       <h1 class="mt-5">Rádio Som do Mato</h1>
-       <p class="lead" ref="musica"></p>
+       <p class="lead" ref="musica">Carregando...</p>
         <vue-plyr>
-          <audio controls crossorigin playsinline>
+          <audio @pause='onPausePlyr' controls crossorigin playsinline>
             <source
                 :src="audiosrc"
                 type="audio/mp3"
