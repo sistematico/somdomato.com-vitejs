@@ -14,6 +14,7 @@ const musica = ref('')
   .then(res=>res.json())
   .then((response) => {
     console.log(response.icestats.source.title)
+    musica = response.icestats.source.title
   }).catch((error) => {
     console.log('Looks like there was a problem: \n', error);
   });    
