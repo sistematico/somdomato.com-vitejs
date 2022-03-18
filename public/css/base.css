@@ -1,0 +1,14 @@
+html,
+body {
+  height: 100%;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+main > .container {
+  padding: 60px 15px 0;
+}
