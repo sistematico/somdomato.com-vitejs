@@ -1,19 +1,23 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
+//const streamData = ref(null)
 const musica = ref('')
+const ouvintes = ref('')
 const audiosrc = ref('https://radio.somdomato.com/main')
 
 const onPausePlyr = _ => {
   audiosrc.value = 'https://radio.somdomato.com/main?nc=' + Math.floor(Date.now() / 1000)
 }
 
-const fetchTitle = _ => {
+const fetchData = _ => {
   fetch('https://radio.somdomato.com/json')
   .then(res=>res.json())
   .then((response) => {
     if (musica.value)
       musica.value.innerText = response.icestats.source.title
+    if (ouvintes.value)
+      ouvintes.value.innerText = response.icestats.source.listeners
   }).catch((error) => {
     console.log('Looks like there was a problem: \n', error);
   })
@@ -21,10 +25,10 @@ const fetchTitle = _ => {
 
 onMounted(() => {
   audiosrc.value = 'https://radio.somdomato.com/main?nc=' + Math.floor(Date.now() / 1000) 
-  fetchTitle()
+  fetchData()
 
   setInterval(function () { 
-    fetchTitle()
+    fetchData()
   }, 5000)
 })
 </script>
@@ -83,9 +87,11 @@ onMounted(() => {
         </p> -->
     </div>
   </main>
-  <footer class="footer mt-auto py-3 bg-light">
+  <footer class="footer mt-auto py-3">
     <div class="container">
-      <span class="text-muted">&copy; 2012-2022 Rádio Som do Mato - A mais sertaneja!</span>
+      <p class="text-muted m-0">&copy; 2012-2022 Rádio Som do Mato</p>
+      <p class="text-muted m-0">A mais sertaneja!</p>
+      <p class="text-muted m-0 small">Ouvintes: <span ref="ouvintes">0</span></p>
     </div>
   </footer>
   <!-- <HelloWorld msg="Hello Vue 3 + Vite" /> -->
@@ -93,5 +99,4 @@ onMounted(() => {
 
 <style>
 @import "./scss/app.scss";
-@import '../public/css/player.css';
 </style>
