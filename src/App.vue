@@ -9,19 +9,19 @@ const musica = ref('')
 onMounted(() => {
   //console.log(`The initial count is ${count.value}.`)
 
-    setInterval(function () {
+  setInterval(function () {
 
 
-  fetch('https://radio.somdomato.com:8000/status-json.xsl', {
-  headers: { 'Content-type': 'application/json' },
-  })
-  .then(res=>res.json())
-  .then((response) => {
-  console.log(response.icestats.source.title)
-  musica = response.icestats.source.title
-  }).catch((error) => {
-  console.log('Looks like there was a problem: \n', error);
-  });    
+    fetch('https://radio.somdomato.com:8000/status-json.xsl', {
+      headers: { 'Content-type': 'application/json' },
+    })
+    .then(res=>res.json())
+    .then((response) => {
+      console.log(response.icestats.source.title)
+      musica = response.icestats.source.title
+    }).catch((error) => {
+      console.log('Looks like there was a problem: \n', error);
+    });    
 
   }, 5000);
 })
