@@ -16,6 +16,7 @@ onMounted(() => {
 
 
     fetch('https://radio.somdomato.com:8000/status-json.xsl', {
+      mode:"cors",
       headers: { 'Content-type': 'application/json' },
     })
     .then(res=>res.json())
@@ -76,7 +77,7 @@ onMounted(() => {
        <p class="lead">{{ musica }}</p>
 
 <vue-plyr>
-  <audio controls playsinline crossorigin="anonymous">
+  <audio controls crossorigin playsinline>
     <source
         :src="audiosrc"
         type="audio/mp3"
