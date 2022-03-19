@@ -90,7 +90,7 @@ onMounted(() => {
 
           <div class="plyr__container">
             <vue-plyr ref="plyr" :options="{ controls: PlyrControls }">
-              <audio @pause="resetSrc" controls crossorigin playsinline>
+              <audio @pause="resetSrc" controls crossorigin playsinline preload="none">
                 <source src="https://radio.somdomato.com/main" type="audio/mp3" />
               </audio>
             </vue-plyr>
