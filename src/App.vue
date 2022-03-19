@@ -73,9 +73,7 @@ onMounted(() => {
         </button>
         <div class="collapse navbar-collapse show" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <!-- <li class="nav-item">
-              <a class="nav-link disabled">A mais sertaneja!</a>
-            </li> -->
+            <!-- <li class="nav-item"><a class="nav-link disabled">A mais sertaneja!</a></li> -->
           </ul>    
           
           <ul class="navbar-nav mb-2 mb-md-0">
@@ -106,8 +104,8 @@ onMounted(() => {
   <footer class="footer mt-auto py-3">
     <div class="container">
       <p class="text-muted m-0">&copy; 2012-2022 Rádio Som do Mato</p>
-      <p class="text-muted m-0">Por amor à música sertaneja</p>
-      <p class="text-muted m-0 small">Ouvintes: <span ref="ouvintes">0</span></p>
+      <p class="text-muted m-0 fst-italic">Por amor à música sertaneja.</p>
+      <p class="text-muted m-0 fs-6 small">Ouvintes: <span ref="ouvintes">0</span></p>
     </div>
   </footer>
 </template>
