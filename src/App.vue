@@ -103,6 +103,8 @@ onMounted(() => {
   <main class="h-100 d-flex align-items-center">
     <div class="container text-center">
       <img src="/assets/img/logo.png" class="img-fluid" alt="...">
+
+      <iframe src="https://chat.somdomato.com" style="width:100%;height:680px;border:0;display:block"></iframe>
     </div>
   </main>
   <footer class="footer mt-auto py-3">
