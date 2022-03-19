@@ -69,11 +69,7 @@ onMounted(() => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-
           <span class="navbar-toggler-icon"></span>
-		      <!-- <input type="checkbox" name="main-nav" id="main-nav" class="burger-check"> -->
-		      <!-- <label for="main-nav" class="burger menu"><span></span></label> -->
-
         </button>
         <div class="collapse navbar-collapse show" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
@@ -100,7 +96,7 @@ onMounted(() => {
       </div>
     </nav>
   </header>
-  <main class="h-100 d-flex align-items-center">
+  <main class="flex-shrink-0 d-flex align-items-center">
     <div class="container text-center">
       <img src="/assets/img/logo.png" class="img-fluid" alt="...">
 
