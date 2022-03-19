@@ -1,0 +1,73 @@
+.plyr {
+  min-width: 0px;
+}
+
+.plyr__container {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  max-width: 100%;
+  /* width: 100%; */
+  height: 100%;
+}
+
+.plyr__tooltip {
+  display: none;
+}
+
+.plyr__controls {
+  display: inline-flex;
+  /* justify-content: flex-start; */
+  justify-content: center;
+}
+
+.plyr--audio .plyr__controls {
+  color: #fff;
+  background: transparent;
+  padding: 0;
+}
+
+.plyr__controls .plyr__controls__item:first-child {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.plyr__controls .plyr__controls__item {
+  margin: 0;
+}
+
+.plyr__volume {
+  min-width: 75px;
+}
+
+.plyr__controls .plyr__controls__item.plyr__title {
+  padding: 0 5px;
+}
+
+.plyr__controls .plyr__controls__item.plyr__progress__container:first-child,
+.plyr__controls .plyr__controls__item.plyr__title + .plyr__title,
+.plyr__controls .plyr__controls__item.plyr__title:first-child {
+  padding-left: 0;
+}
+
+.plyr__title {
+  font-size: 13px;
+}
+
+.plyr__title + .plyr__title:before {
+  content: "\2044";
+  margin-right: 10px;
+}
+
+/* @media (max-width: 767px) {
+  .plyr__title + .plyr__title {
+      display: none;
+  }
+} */
+
+/* Bootstrap Navbar Collapse */
+@media (max-width: 768px) {
+  .plyr__container {
+    justify-content: center;
+  }
+}
