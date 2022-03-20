@@ -17,8 +17,15 @@
 
 .plyr__controls {
   display: inline-flex;
+  max-width: 168px;
+  /* margin: 0; */
   /* justify-content: flex-start; */
-  justify-content: center;
+  /* justify-content: center; */
+}
+
+.plyr__controls > .plyr__control:first-child + .plyr__control .plyr__tooltip:before,
+.plyr__controls > .plyr__control:first-child .plyr__tooltip:before {
+  left: 0;
 }
 
 .plyr--audio .plyr__controls {
@@ -37,7 +44,7 @@
 }
 
 .plyr__volume {
-  min-width: 75px;
+  min-width: 72px;
 }
 
 .plyr__controls .plyr__controls__item.plyr__title {
