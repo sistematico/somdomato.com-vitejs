@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+!dist/twittercast/
 !dist/twittercast/**
 
 # Editor directories and files
