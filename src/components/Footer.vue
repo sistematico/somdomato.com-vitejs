@@ -4,7 +4,7 @@ defineProps({
 })
 </script>
 <template>
-  <footer class="footer mt-auto py-3" style="background-color: #2B2522;">
+  <footer class="footer mt-auto py-3 shadow shadow-sm" style="background-color: #2B2522;">
     <div class="container">
       <p class="text-muted m-0">&copy; 2012-2022 <span class="d-none d-sm-inline">Rádio </span>Som do Mato</p>
       <p class="text-muted m-0 fst-italic">Por amor à música sertaneja.</p>

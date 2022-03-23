@@ -1,8 +1,8 @@
 <template>
-  <header class="shadow">
+  <header class="shadow shadow-sm">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #2B2522;">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#" style="margin-top: -2px;">
+        <a class="navbar-brand" href="#/" style="margin-top: -2px;">
           <img
             src="/assets/img/logotipo.svg"
             alt="Rádio Som do Mato"
@@ -26,7 +26,7 @@
         <div class="collapse navbar-collapse show" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item me-1">
-              <a href="#"
+              <a href="#/about"
                 class="nav-link"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"

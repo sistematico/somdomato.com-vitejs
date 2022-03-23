@@ -1,11 +1,14 @@
 <template>
   <div
-    id="carouselExampleSlidesOnly"
+    id="carousellidesOnly"
     class="carousel slide carousel-fade mb-3 mx-0 px-0"
     data-bs-ride="carousel"
     data-bs-interval="10000"
   >
     <div class="carousel-inner">
+      <div class="overlay">
+        <img src="/assets/img/logotipo.png" alt="Rádio Som do Mato" />
+      </div>
       <div class="carousel-item active">
         <img src="/assets/img/banner/henrique-e-juliano.jpg" class="d-block w-100" alt="Henrique & Juliano" style="object-position: 50% 40%;" />
       </div>
@@ -19,6 +22,24 @@
   </div>
 </template>
 <style>
+.overlay {
+    /* background: url('/assets/img/logotipo.png') top left no-repeat; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+    text-align: right;
+}
+
+.overlay img {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
 .carousel-item > img {
   position: relative;
   height: 22rem;

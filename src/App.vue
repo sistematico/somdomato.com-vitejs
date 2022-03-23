@@ -1,30 +1,37 @@
 <script setup>
+import { ref, computed } from 'vue'
 import BaseLayout from './layouts/Base.vue'
-import Modal from './components/Modal.vue'
 import Carousel from './components/Carousel.vue'
+import Home from './pages/Home.vue'
+import About from './pages/About.vue'
+import NotFound from './pages/NotFound.vue'
+
+const routes = {
+  '/': Home,
+  '/about': About
+}
+
+const currentPath = ref(window.location.hash)
+
+window.addEventListener('hashchange', () => {
+  currentPath.value = window.location.hash
+})
+
+const currentView = computed(() => {
+  return routes[currentPath.value.slice(1) || '/'] || NotFound
+})
 </script>
 <template>
   <base-layout>
     <div class="container-fluid text-center">
-
-      <div class="container text-center">
-        <div class="row">
-          <img src="/assets/img/logo.svg" class="img-fluid my-3" alt="Rádio Som do Mato" />
-        </div>
-      </div>
-
       <div class="container-fluid text-center">
         <div class="row">
           <Carousel />
         </div>
       </div>
-
       <div class="container text-center my-3">
         <div class="row">
-          <iframe
-            src="https://chat.somdomato.com"
-            style="width:100%; height:680px; border:0; display:block; margin: 0 0"
-          ></iframe>
+          <component :is="currentView" />
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
 import Player from '../components/Player.vue'
+import Modal from '../components/Modal.vue'
 
 const ouvintes = ref('')
 ouvintes.value = 'Carregando...'
@@ -45,8 +46,9 @@ onMounted(() => {
     <slot />
   </main>
   <Footer :ouvintes="ouvintes" />
+  <Modal />
 </template>
-<style>
+<style lang="scss">
 @import "../scss/app.scss";
 
 #stream-title {

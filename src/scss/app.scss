@@ -1,4 +1,18 @@
+$body-bg: #2B2522;
+$body-color: #fff;
+
+$primary: #0074d9;
+$danger: #ff4136;
+
+$theme-colors: (
+  "primary": $primary,
+  "danger": $danger,
+  "secondary": $danger
+);
+
+@import "bootstrap/scss/bootstrap";
+
 body {
     font-family: 'Nunito', sans-serif;
-    background: black url("/assets/img/res/madeira.jpg");
+    background: #2B2522 url("/assets/img/res/madeira.jpg");
 }

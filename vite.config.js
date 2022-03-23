@@ -26,5 +26,10 @@ export default defineConfig({
         },
       ],
     },
-  },
-});
+    preprocessorOptions: {
+      scss: { 
+        additionalData: `@import "bootstrap/scss/bootstrap";` 
+      }
+    }
+  }
+})
