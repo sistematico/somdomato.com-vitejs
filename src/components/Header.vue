@@ -10,7 +10,7 @@
             height="28"
             style="margin: -4px 6px 0 0; padding: 0;"
           />
-          <span class="d-none d-sm-inline">Rádio </span>Som do Mato
+          <span class="d-none d-sm-none d-md-inline">Rádio&nbsp;</span>Som do Mato
         </a>
         <button
           class="navbar-toggler border-0 shadow-none"
@@ -24,21 +24,22 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse show" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item me-1">
-              <a href="#/about"
+          <!-- <ul class="navbar-nav me-auto mb-2 mb-md-0"> -->
+          <ul class="d-flex navbar-nav mb-0 mb-md-0">
+            <li class="nav-item">
+              <a
+                href="#/about"
                 class="nav-link"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
-              >
-                A mais sertaneja!
-              </a>
+              >Sobre</a>
             </li>
-          </ul>    
-          
-          <slot name="title" />
-          <slot name="player" />
+          </ul>
 
+          <ul class="navbar-nav ms-auto">
+            <slot name="title" />
+            <slot name="player" />
+          </ul>
         </div>
       </div>
     </nav>

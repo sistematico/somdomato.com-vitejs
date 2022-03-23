@@ -32,14 +32,14 @@ onMounted(() => {
 <template>
   <Header>
     <template #title>
-      <ul class="navbar-nav mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link disabled text-truncate" id="stream-title">Carregando...</a>
+          <a class="nav-link disabled" id="stream-title">Carregando...</a>
         </li>
-      </ul>
     </template>
     <template #player>
-      <Player />
+      <li class="nav-item">        
+          <Player />        
+      </li>
     </template>
   </Header>
   <main class="flex-shrink-0 d-flex align-items-center mx-0">
@@ -51,42 +51,42 @@ onMounted(() => {
 <style lang="scss">
 @import "../scss/app.scss";
 
-#stream-title {
-  max-width: 75px;
-}
+// #stream-title {
+//   // max-width: 75px;
+// }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   #stream-title {
-    max-width: 100px;
+    max-width: 400px;
   }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   #stream-title {
-    max-width: 200px;
+    max-width: 450px;
   }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   #stream-title {
-    max-width: 275px;
+    max-width: 600px;
   }
 }
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   #stream-title {
-    max-width: 375px;
+    max-width: 800px;
   }
 }
 
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {
   #stream-title {
-    max-width: 400px;
+    max-width: 900px;
   }
 }
 </style>
